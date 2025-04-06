@@ -1,15 +1,44 @@
 :root {
-    --colorPrimary: #0396A6;
-    --colorSecondary: #05DBF2;
+    --colorPrimary: #3BBCD9;
+    --colorSecondary: #88E8F2;
+    --colorRed: #F24141;
     --colorText: #1a1d2d;
     --bgColor: #ffffff;
     --colorTitleH2: #1a1d2d;
     --colorP: #585858;
     --bgColorFooter: #0B3B59;
-    --colorBtn1: #05DBF2;
-    --colorBtn2: #0B3B59;
+    --colorBtn1: #FF512F;
+    --colorBtn2: #DD2476;
+    --colorBtn3: #00d2ff;
+    --colorBtn4: #3a7bd5;
 
 }
+
+
+.btn-grad {
+    background-image: linear-gradient(to right, #00d2ff 0%, #3a7bd5 51%, #00d2ff 100%)
+}
+
+.btn-grad {
+    margin: 10px;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+}
+
+.btn-grad:hover {
+    background-position: right center;
+    /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
+
 
 /* Color Theme Swatches in Hex */
 .Fashion-1-hex {
@@ -169,7 +198,7 @@ header {
 
 .header__nav .navbar-nav .nav-link:hover,
 .header__nav .navbar-nav .nav-link.active {
-    color: var(--colorSecondary);
+    color: var(--colorPrimary);
 }
 
 .header__nav .navbar-nav .nav-link::after {
@@ -315,7 +344,7 @@ header {
     position: absolute;
     width: 450px;
     height: 450px;
-    background-color: var(--colorSecondary);
+    background-color: var(--colorPrimary);
     z-index: 1;
     animation: blobAnimation 6s ease-in-out infinite;
 }
@@ -570,7 +599,7 @@ header {
 }
 
 .services__item:hover {
-    background: var(--colorSecondary);
+    background: var(--colorPrimary);
     border-color: var(--bgColor);
 }
 
@@ -647,7 +676,7 @@ header {
 .contact__item h2 {
     font-size: 36px;
     line-height: 42px;
-    color: var(--colorTitleH2);
+    color: var(--colorPrimary);
     font-weight: 600;
 }
 
@@ -663,19 +692,20 @@ header {
 /* FOOTER */
 footer {
     background-color: var(--bgColorFooter);
-    color: var(--bgColor);
+    /* color: var(--bgColor); */
 }
 
 .footer__content h3 {
-    font-size: 20px;
+    font-size: 30px;
     line-height: 26px;
     font-weight: 600;
     margin-bottom: 25px;
+    color: var(--colorPrimary);
 }
 
 .footer__contact span,
 .footer__support span {
-    color: var(--bgColor);
+    color: var(--colorPrimary);
     font-weight: 700;
 }
 
@@ -717,7 +747,7 @@ footer {
 }
 
 .footer__bottom p span {
-    color: var(--colorSecondary);
+    color: var(--colorPrimary);
     font-weight: 600;
 }
 
@@ -807,7 +837,7 @@ footer {
 }
 
 .banner__contact {
-    background-image: url(../image/banner_red.jpg);
+    background-image: url(../image/banner_blue.jpg);
 }
 
 .banner .title h2 {
@@ -822,12 +852,20 @@ footer {
 
 .aboutUs .img img {
     width: 100%;
-    max-height: 450px;
-    background-size: auto;
+    height: 450px;
+    /* background-size: auto; */
     background-position: center;
     border-radius: 10px;
     display: block;
+    object-fit: cover;
+    object-position: center;
 }
+
+.aboutUs .img {
+    width: 100%;
+    max-height: 450px;
+}
+
 
 .aboutUs .content__right {
     position: relative;
@@ -849,7 +887,7 @@ footer {
     border-bottom-left-radius: 40px;
     text-align: center;
     color: var(--bgColor);
-    background-image: linear-gradient(to right, var(--colorBtn1) 0%, var(--colorBtn2) 51%, var(--colorBtn1) 100%);
+    background-image: linear-gradient(to right, var(--colorBtn3) 0%, var(--colorBtn4) 51%, var(--colorBtn3) 100%);
 
 }
 
@@ -877,6 +915,10 @@ footer {
     color: var(--colorText);
 }
 
+.contact_page__content .contact_page__info a:hover {
+    color: var(--colorPrimary);
+}
+
 .contact_page__content .contact_page__info p {
     vertical-align: middle;
 }
@@ -888,8 +930,15 @@ footer {
 }
 
 .contact_page__content .contact_page__right .body {
-    width: 80%;
+    padding-left: 20px;
+    width: 100%;
     margin: auto;
+}
+
+.contact_page__content .contact_page__right {
+    background-image: linear-gradient(to right, var(--colorBtn3) 0%, var(--colorBtn4) 51%, var(--colorBtn3) 100%);
+    border-top-right-radius: 20%;
+    border-bottom-left-radius: 20%
 }
 
 .contact_page__content .contact_page__right .footer {
@@ -897,7 +946,18 @@ footer {
     justify-content: center;
 }
 
-.contact_page__content .contact_page__right button {}
+.contact_page__content .contact_page__right h2 {
+    color: var(--bgColor);
+}
+
+.contact_page__content h2 {
+    margin-top: 20px;
+}
+
+
+.contact_page__content .contact_page__right button {
+    margin-top: 20px;
+}
 
 @keyframes zoomIn {
     0% {
