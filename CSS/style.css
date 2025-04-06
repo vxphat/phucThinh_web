@@ -774,9 +774,13 @@ footer {
 
 .footer__content .mail .btn-gradient {
     margin-left: 5px;
-    padding: 15px 30px;
+    padding: 10px 30px;
     white-space: nowrap;
     /* Ngăn button xuống dòng */
+}
+
+.footer__content .connect p {
+    color: var(--bgColor);
 }
 
 
