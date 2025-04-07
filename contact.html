@@ -80,16 +80,16 @@
                 <li>
                   <h5>CÔNG TY TNHH GIẢI PHÁP NHÂN LỰC PHÚC THỊNH</h5>
                   <p class="mb-0">
-                    <ion-icon name="location-outline"></ion-icon> <span>Địa chỉ: </span>Số A4/308A, đường Bùi Hữu Nghĩa, tổ 11, KP4, phường Tân Vạn, TP Biên Hòa, tỉnh Đồng Nai.
+                    <ion-icon name="location-outline"></ion-icon> <span></span>Số A4/308A, đường Bùi Hữu Nghĩa, tổ 11, KP4, phường Tân Vạn, TP Biên Hòa, tỉnh Đồng Nai.
                   </p>
                   </p>
                 </li>
                 <li>
-                  <ion-icon name="call-outline"></ion-icon> <span>Điện thoại: </span
+                  <ion-icon name="call-outline"></ion-icon> <span></span
                   ><a href="tel:+84971088441">+(84) 971 088 441</a>
                 </li>
                 <li>
-                  <ion-icon name="mail-outline"></ion-icon> <span>Email: </span
+                  <ion-icon name="mail-outline"></ion-icon> <span></span
                   ><a href="mailto:nhanlucphucthinh.company@gmail.com">
                     nhanlucphucthinh.company@gmail.com</a
                   >
@@ -342,61 +342,61 @@ src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script
 
 <!-- Script xử lý form -->
 <script type="text/javascript">
-// Khởi tạo EmailJS
-(function () {
-  emailjs.init("w9desu-3kuo8EAUKU"); // Thay bằng Public Key từ EmailJS
-})();
+  // Khởi tạo EmailJS
+  (function () {
+    emailjs.init("w9desu-3kuo8EAUKU"); // Thay bằng Public Key từ EmailJS
+  })();
 
-document
-  .getElementById("userForm")
-  .addEventListener("submit", function (e) {
-    e.preventDefault();
+  document
+    .getElementById("userForm")
+    .addEventListener("submit", function (e) {
+      e.preventDefault();
 
-    // Lấy dữ liệu từ form
-    const formData = new FormData(this);
-    const jsonData = {
-      name: this.name.value,
-      address: this.address.value,
-      phone: this.phone.value,
-      zone: this.zone.value,
-      timestamp: new Date().toLocaleString(),
-    };
+      // Lấy dữ liệu từ form
+      const formData = new FormData(this);
+      const jsonData = {
+        name: this.name.value,
+        address: this.address.value,
+        phone: this.phone.value,
+        zone: this.zone.value,
+        timestamp: new Date().toLocaleString(),
+      };
 
-    // Hàm gửi dữ liệu lên Google Sheet
-    const sendToGoogleSheet = fetch(
-      "https://script.google.com/macros/s/AKfycbxJ1PxLVSRrFi2WK-VgHEPHbCvblPY49BcGNO3WkxGpQBwhNfGYZc3hkv8Wc8Ry4WdzlQ/exec", // Thay bằng URL Web app từ Google Apps Script
-      {
-        method: "POST",
-        body: formData,
-      }
-    ).then((response) => response.json());
-
-    // Hàm gửi email qua EmailJS
-    const sendEmail = emailjs.send(
-      "service_7rd7ema", // Thay bằng Service ID từ EmailJS
-      "template_8zyykh6", // Thay bằng Template ID từ EmailJS
-      jsonData
-    );
-
-    // Thực hiện cả hai tác vụ cùng lúc và xử lý kết quả
-    Promise.all([sendToGoogleSheet, sendEmail])
-      .then(([sheetResponse, emailResponse]) => {
-        if (
-          sheetResponse.result === "success" &&
-          emailResponse.status === 200
-        ) {
-          alert("Gửi thông tin thành công!");
-          this.reset(); // Reset form
-          $("#staticBackdrop").modal("hide"); // Đóng modal
-        } else {
-          throw new Error("Một trong hai tác vụ thất bại");
+      // Hàm gửi dữ liệu lên Google Sheet
+      const sendToGoogleSheet = fetch(
+        "https://script.google.com/macros/s/AKfycbz3jhRtOFNnOEVCYWxlhU6m4T8-8V9j8pQoSeUn9b_vsKtqSISWEvUH0bANWETbQCR9/exec", // Thay bằng URL Web app từ Google Apps Script
+        {
+          method: "POST",
+          body: formData,
         }
-      })
-      .catch((error) => {
-        console.error("Lỗi:", error);
-        alert("Có lỗi xảy ra, vui lòng thử lại!");
-      });
-  });
+      ).then((response) => response.json());
+
+      // Hàm gửi email qua EmailJS
+      const sendEmail = emailjs.send(
+        "service_7rd7ema", // Thay bằng Service ID từ EmailJS
+        "template_y2do3wk", // Thay bằng Template ID từ EmailJS
+        jsonData
+      );
+
+      // Thực hiện cả hai tác vụ cùng lúc và xử lý kết quả
+      Promise.all([sendToGoogleSheet, sendEmail])
+        .then(([sheetResponse, emailResponse]) => {
+          if (
+            sheetResponse.result === "success" &&
+            emailResponse.status === 200
+          ) {
+            alert("Gửi thông tin thành công!");
+            this.reset(); // Reset form
+            $("#staticBackdrop").modal("hide"); // Đóng modal
+          } else {
+            throw new Error("Một trong hai tác vụ thất bại");
+          }
+        })
+        .catch((error) => {
+          console.error("Lỗi:", error);
+          alert("Có lỗi xảy ra, vui lòng thử lại!");
+        });
+    });
 </script>
 
   <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons@latest/dist/ionicons/ionicons.esm.js"></script>
